@@ -63,6 +63,7 @@ def calcMaxThree(input:str) -> int:
 
     return currList[-1] + currList[-2] + currList[-3]
 
+
 def main():
     input = readFile('Day 1\input.txt')
     
