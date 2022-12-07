@@ -16,7 +16,6 @@ def readFile(filename: str = 'input.txt') -> str:
     file = open(filename, "r")
     return file.read()
 
-
 def calcMax(input:str) -> int:
     """
     finds out which elf is carrying the most
