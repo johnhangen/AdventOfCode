@@ -19,7 +19,7 @@ def readFile(filename: str = 'input.txt') -> str:
 
 
 def att1(input):
-  count: int = 0
+  count = 0
   
   for line in input.splitlines():
     spots = line.split(sep=',')
@@ -27,19 +27,34 @@ def att1(input):
     spot0 = spots[0].split(sep='-')
     spot1 = spots[1].split(sep='-')
 
-    if (spot0[0] <= spot1[0] and spot1[1] <= spot0[1]) or (spot1[0] <= spot0[0] and spot0[1] <= spot1[1]):
+      # (a_a <= b_a and a_b >= b_b) or (b_a <= a_a and b_b >= a_b)
+    if (int(spot0[0]) <= int(spot1[0]) and int(spot0[1]) >= int(spot1[1])) or (int(spot1[0]) <= int(spot0[0]) and int(spot1[1]) >= int(spot0[1])):
       #print(f"{spot0[0]} <= {spot1[0]} and {spot1[1]} <= {spot0[1]})")
-      count = count + 1
-    elif (spot0 == spot1):
       count = count + 1
 
   print(count)
 
+def att2(input):
+  count = 0
+  
+  for line in input.splitlines():
+    spots = line.split(sep=',')
+
+    spot0 = spots[0].split(sep='-')
+    spot1 = spots[1].split(sep='-')
+
+      # (a_a <= b_a and a_b >= b_b) or (b_a <= a_a and b_b >= a_b)
+    if int(spot0[0]) < int(spot1[0]) or int(spot0[1]) > int(spot1[1]) or int(spot1[0]) < int(spot0[0]) or int(spot1[1]) > int(spot0[1]):
+      #print(f"{spot0[0]} <= {spot1[0]} and {spot1[1]} <= {spot0[1]})")
+      count = count + 1
+
+  print(count)
 
 def main():
-  input = readFile('input.txt')
+  input = readFile('Day 4/input.txt')
 
   att1(input) 
+  att2(input)
   
 
 if __name__ == "__main__":
